@@ -41,4 +41,20 @@ router.get('/testsql', async (request, response) => {
     }
 });
 
+//Első feladat
+
+let messages = [];
+
+router.post('/sendMessage', (request, response) => {
+    const {sender, message} = request.body;
+
+    messages.push({
+        sender: sender, message: message
+    });
+    
+    console.log(messages);
+
+    response.status(200).json({message: "Üzenet fogadva"});
+})
+
 module.exports = router;

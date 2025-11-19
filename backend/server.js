@@ -28,6 +28,26 @@ router.get('/', (request, response) => {
     response.sendFile(path.join(__dirname, '../frontend/html/index.html'));
 });
 
+router.get('/elsoFeladat', (request, response) => {
+    response.sendFile(path.join(__dirname, '../frontend/html/elsoFeladat.html'));
+});
+
+router.get('/masodikFeladat', (request, response) => {
+    response.sendFile(path.join(__dirname, '../frontend/html/masodikFeladat.html'));
+});
+
+router.get('/harmadikFeladat', (request, response) => {
+    response.sendFile(path.join(__dirname, '../frontend/html/harmadikFeladat.html'));
+});
+
+router.get('/negyedikFeladat', (request, response) => {
+    response.sendFile(path.join(__dirname, '../frontend/html/negyedikFeladat.html'));
+});
+
+router.get('/otodikFeladat', (request, response) => {
+    response.sendFile(path.join(__dirname, '../frontend/html/otodikFeladat.html'));
+});
+
 //!API endpoints
 app.use('/', router);
 const endpoints = require('./api/api.js');
