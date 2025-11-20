@@ -98,6 +98,44 @@ router.post('/names', (request, response) => {
 
 //Negyedik feladat
 
-router.post
+let votes = [{optionname: 'vote1', db: 0}, {optionname: 'vote2', db: 0}];
+
+router.post('/vote', (request, response) => {
+    const {optionname} = request.body;
+
+    if(optionname == "vote1") {
+        votes[0].db += 1
+
+    } else if(optionname == "vote2") {
+        votes[1].db += 1
+    }
+
+    console.log(votes);
+
+    response.status(200).json({message: 'Siker'})
+})
+
+//ötös feladat
+
+let todos = []
+
+router.get('/todos', (request,response) => {
+    response.status(200).json({
+        success: 'true',
+        results: todos
+    })
+})
+
+router.post('/todos', (request, response) => {
+    const {task} = request.body;
+
+    savedNames.push({
+        task: task
+    })
+
+    console.log(todos)
+
+    response.status(200).json({message: 'SIKER'})
+})
 
 module.exports = router;

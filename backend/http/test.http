@@ -1,11 +1,12 @@
 ###
 
-POST http://127.0.0.1:3000/api/names
+POST http://127.0.0.1:3000/api/vote
 content-type: application/json
 
 {
-    "names": "Badó M János"
+    "vote1": 1,
+    "vote2": 1
 }
 
 ###
-GET http://127.0.0.1:3000/api/names
+GET http://127.0.0.1:3000/api/vote
