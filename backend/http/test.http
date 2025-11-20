@@ -1,2 +1,11 @@
-POST 
+###
 
+POST http://127.0.0.1:3000/api/names
+content-type: application/json
+
+{
+    "names": "Badó M János"
+}
+
+###
+GET http://127.0.0.1:3000/api/names

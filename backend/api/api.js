@@ -57,4 +57,43 @@ router.post('/sendMessage', (request, response) => {
     response.status(200).json({message: "Üzenet fogadva"});
 })
 
+//Második feladat
+
+let saveData = [];
+
+router.post('/saveData', (request,response) => {
+    const { key } = request.body;
+
+    saveData.push({
+        key: key
+    })
+
+    console.log(saveData);
+
+    response.status(200).json({message: 'Sikeres mentés'});
+});
+
+//Harmadik feladat
+
+let savedNames = []
+
+router.get('/names', (request,response) => {
+    response.status(200).json({
+        success: 'true',
+        results: savedNames
+    })
+})
+
+router.post('/names', (request, response) => {
+    const {names} = request.body;
+
+    savedNames.push({
+        names: names
+    })
+
+    console.log(savedNames)
+
+    response.status(200).json({message: 'SIKER'})
+})
+
 module.exports = router;
