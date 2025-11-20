@@ -96,4 +96,8 @@ router.post('/names', (request, response) => {
     response.status(200).json({message: 'SIKER'})
 })
 
+//Negyedik feladat
+
+router.post
+
 module.exports = router;
