@@ -31,7 +31,7 @@ const sendMessage = async () => {
 
         console.log(response);
 
-        const span = document.getElementById('ansswer')
+        const span = document.getElementById('answer')
         span.innerText = response.message;
         
     } catch(error) {
