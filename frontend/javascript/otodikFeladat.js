@@ -1,7 +1,7 @@
 document.addEventListener('DOMContentLoaded', () => {
     createUnorderedList();
 
-    document.getElementById('saveTask').addEventListener('click', saveTask)
+    document.getElementById('postTodo').addEventListener('click', saveTask)
 })
 
 const getMethodFetch = async (url) => {
@@ -35,37 +35,39 @@ const postMethodFetch = async (url, data) => {
 
 async function createUnorderedList() {
     try {
-        const response = await getMethodFetch('/api/names');
+        const response = await getMethodFetch('/api/todos');
         console.log(response)
         const data = response.results;
 
-        let select = document.getElementById('select')
-        select.replaceChildren();
+        let ol = document.getElementById('xdlol');
+        ol.replaceChildren();
         for(const item of data) {
-            let option = document.createElement('option')
+            let li = document.createElement('li')
 
-            option.textContent = item.names;
+            li.textContent = item.task;
 
-            select.appendChild(option);
+            ol.appendChild(li);
+
+            li.addEventListener('click', () => {
+                li.setAttribute('class', 'kihuzva')
+            });
         }
+
     } catch (error) {
         console.error('Hiba: ', error)
     }
-
-    
-
 }
 
 const saveTask = async () => {
     try {
 
-        const names = document.getElementById('saveName').value;
+        const task = document.getElementById('saveTask').value;
 
-        console.log(names)
+        console.log(task)
 
-        if(names !== '') {
-            const response = await postMethodFetch('/api/names', {
-                names: names
+        if(task !== '') {
+            const response = await postMethodFetch('/api/todos', {
+                task: task
             });
 
             console.log(response);    

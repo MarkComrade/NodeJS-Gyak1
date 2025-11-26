@@ -129,7 +129,7 @@ router.get('/todos', (request,response) => {
 router.post('/todos', (request, response) => {
     const {task} = request.body;
 
-    savedNames.push({
+    todos.push({
         task: task
     })
 
